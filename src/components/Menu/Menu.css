@@ -1,0 +1,11 @@
+.menu__list {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  grid-column-gap: 44px;
+}
+
+.menu__link {
+  font-size: 19px;
+  line-height: 23px;
+  color: #000;
+}

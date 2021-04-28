@@ -1,0 +1,29 @@
+.we {
+  border-bottom: 1px solid #dedede;
+}
+
+.we__container {
+  max-width: 1260px;
+  display: flex;
+  flex-direction: column;
+  margin: 60px auto;
+}
+
+.we__title {
+  margin: 0 0 60px;
+}
+
+.we__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.we__subtitle {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 300;
+  font-size: 35px;
+  line-height: 42px;
+  letter-spacing: 0.02em;
+  color: #2B2B2B;
+  margin: 70px 0 45px;
+}

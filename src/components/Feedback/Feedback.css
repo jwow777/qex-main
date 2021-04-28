@@ -1,0 +1,79 @@
+.feedback {
+  background-image: url(../../images/feedback/bg.png);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 10%;
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  box-sizing: border-box;
+  padding: 68px 90px;
+}
+
+.feedback__title {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 47px;
+  letter-spacing: 0.01em;
+  margin: 0;
+  grid-column: 2;
+  align-self: center;
+}
+
+.feedback__subtitle {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 47px;
+  letter-spacing: -0.035em;
+  margin: 0;
+  grid-column: 2;
+  align-self: center;
+}
+
+.feedback__form {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-column: 2;
+  align-self: center;
+}
+
+.feedback__input {
+  width: 244px;
+  height: 40px;
+  border: 1px solid #C7C9D9;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0.5px 4px rgba(96, 97, 112, 0.25);
+  border-radius: 4px;
+}
+
+.feedback__label {
+  font-size: 10.5px;
+  line-height: 13px;
+  color: #686868;
+  opacity: 0.6;
+}
+
+.feedback__checkbox {
+  width: 10px;
+  height: 10px;
+  opacity: 0.6;
+  border: 1px solid #2D95F4;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.feedback__button {
+  width: 149px;
+  height: 46px;
+  grid-row: 1;
+  grid-column: 2;
+  background: #448CFF;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff;
+}

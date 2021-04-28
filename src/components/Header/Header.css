@@ -1,0 +1,116 @@
+.header {
+  min-height: 756px;
+  padding-top: 20px;
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.header__container {
+  border-bottom: 1px solid #dedede;
+}
+
+.header__content {
+  display: flex;
+  margin: 0 auto;
+}
+
+.header__content_top {
+  max-width: 1400px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__content_middle {
+  max-width: 1260px;
+  min-height: 698px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.header__list {
+  max-width: 1260px;
+  height: 151px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.header__block {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  grid-column-gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__phone {
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 23px;
+  color: #010101;
+}
+
+.header__image {
+  display: block;
+}
+
+.header__button_request {
+  background: #fff;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  padding: 5px 13px;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.035em;
+  color: #000000;
+}
+
+.header__button_profile {
+  border-radius: 50%;
+}
+
+.header__title {
+  max-width: 800px;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 101.1%;
+  letter-spacing: 0.005em;
+  color: #353535;
+  margin: 0;
+}
+
+.header__subtitle {
+  max-width: 560px;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 0.005em;
+  margin: 50px 0;
+}
+
+.header__button_test {
+  background: linear-gradient(180deg, #00cfeb 0%, rgba(150, 150, 150, 0) 100%),
+    #0081df;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  padding: 12px 17px;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.header__item {
+  max-width: 250px;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 0.005em;
+  color: #2d2d2d;
+}
+
+.header__important {
+  font-weight: 400;
+}
