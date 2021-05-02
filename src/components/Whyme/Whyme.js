@@ -10,11 +10,11 @@ function Whyme() {
     <section className="whyme">
       <div className="whyme__container">
         <h2 className="title whyme__title">Почему мы лучшие</h2>
-        <div className="whyme__block">
-          <div className="whyme__item">
+        <ul className="list whyme__list">
+          <li className="whyme__item">
             <img
               src={process}
-              alt=""
+              alt="Эффективность бизнес-процесса"
               className="whyme__item-image whyme__item-image_first"
             />
             <h3 className="whyme__item-title">Эффективность бизнес-процесса</h3>
@@ -32,11 +32,11 @@ function Whyme() {
               поведения пользователя - их помогает решать наша внутренняя
               политика компании, ориентированная на результаты.
             </p>
-          </div>
-          <div className="whyme__item">
+          </li>
+          <li className="whyme__item">
             <img
               src={interfaceUX}
-              alt=""
+              alt="Интерфейс (UX\UI)"
               className="whyme__item-image whyme__item-image_second"
             />
             <h3 className="whyme__item-title">Интерфейс (UX\UI)</h3>
@@ -49,9 +49,12 @@ function Whyme() {
               </span>{" "}
               вашей команде и убирает необходимость длительного обучения.
             </p>
-          </div>
-          <div className="whyme__item">
-            <img src={soft} alt="" />
+          </li>
+          <li className="whyme__item">
+            <img
+              src={soft}
+              alt="Возможность поддержки софта другими разработчиками"
+            />
             <h3 className="whyme__item-title">
               Возможность поддержки софта другими разработчиками
             </h3>
@@ -63,9 +66,12 @@ function Whyme() {
               Наши решения можем развивать и поддерживать мы, а может и другая
               команда.
             </p>
-          </div>
-          <div className="whyme__item">
-            <img src={garant} alt="" />
+          </li>
+          <li className="whyme__item">
+            <img
+              src={garant}
+              alt="За все 3 года работы компании 100% проектов доведено до конца"
+            />
             <h3 className="whyme__item-title">
               За все 3 года работы компании 100% проектов доведено до конца
             </h3>
@@ -76,8 +82,8 @@ function Whyme() {
                 нашей философии.
               </span>
             </p>
-          </div>
-        </div>
+          </li>
+        </ul>
         <Link to="/" className="link link_navigation">
           Еще про подход
         </Link>

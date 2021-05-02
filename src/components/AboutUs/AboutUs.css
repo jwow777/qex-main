@@ -1,0 +1,21 @@
+.aboutus {
+  border-bottom: 1px solid #dedede;
+  padding: 0 20px;
+}
+
+.aboutus__container {
+  max-width: 1260px;
+  display: flex;
+  flex-direction: column;
+  margin: 60px auto 90px;
+}
+
+.aboutus__title {
+  margin: 0 0 60px;
+}
+
+.aboutus__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 60px 40px;
+}

@@ -1,5 +1,6 @@
 .clients {
   border-bottom: 1px solid #dedede;
+  padding: 0 20px;
 }
 
 .clients__container {
@@ -13,9 +14,12 @@
 
 .clients__list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(80px, 290px));
+  justify-content: space-between;
+  grid-gap: 30px;
 }
 
 .clients__image {
-  width: 100%;
+  justify-self: center;
+  align-self: center;
 }

@@ -5,7 +5,7 @@ import flag from "../../images/header/flag.png";
 import profile from "../../images/header/profile.png";
 import Menu from "../Menu/Menu";
 
-function Header() {
+function Header({ onFeedback }) {
   return (
     <header
       className="header"
@@ -19,7 +19,10 @@ function Header() {
             <a href="tel:+74954899696" className="link header__phone">
               +7 (495) 489-96-96
             </a>
-            <button className="button header__button_request">
+            <button
+              className="button header__button_request"
+              onClick={onFeedback}
+            >
               Оставить заявку
             </button>
             <button className="button">

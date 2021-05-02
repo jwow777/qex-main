@@ -2,12 +2,17 @@
   width: 280px;
 }
 
+.whoelse__image {
+  display: block;
+  height: 120px;
+}
+
 .whoelse__position {
   font-weight: 500;
   font-size: 20px;
   line-height: 17px;
   color: #606060;
-  margin: 0;
+  margin: 10px 0;
 }
 
 .whoelse__description {

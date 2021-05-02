@@ -3,19 +3,19 @@ const crewman = [
     name: "Алексей",
     position: "Основатель",
     quote: "“Мы не продаем часы - мы продаем результаты”",
-    image: ""
+    photo: "/images/crewman/alexei.png"
   },
   {
     name: "Николай",
     position: "Старший разработчик",
     quote: "“Решим самые сложные задачи, чтобы вашей команде было легко”",
-    image: ""
+    photo: "/images/icons/noavatar.svg"
   },
   {
     name: "Билл Гейтс",
     position: "Младший разработчик",
     quote: "“Устал от конкуренции, решил присоединиться к сильной команде”",
-    image: ""
+    photo: "/images/crewman/bill.png"
   }
 ]
 

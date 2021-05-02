@@ -1,12 +1,12 @@
 .direction {
+  display: grid;
+  grid-template-columns: calc(30% - 10px) 70%;
+  grid-gap: 10px;
   box-sizing: border-box;
   padding: 20px 10px 10px 20px;
   border: 1px solid rgba(71, 197, 237, 0.7);
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
-  display: grid;
-  grid-template-columns: calc(40% - 10px) 60%;
-  grid-gap: 10px;
 }
 
 .direction__image {

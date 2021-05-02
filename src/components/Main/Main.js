@@ -1,22 +1,26 @@
+import "./Main.css";
 import ReadyServices from "../ReadyServices/ReadyServices";
+import Services from "../Services/Services";
 import Whyme from "../Whyme/Whyme";
+import Clients from "../Clients/Clients";
+import We from "../We/We";
+import AboutUs from "../AboutUs/AboutUs";
 import Cases from "../Cases/Cases";
 import Feedback from "../Feedback/Feedback";
-import Clients from "../Clients/Clients";
-import Services from "../Services/Services";
-import "./Main.css";
-import We from "../We/We";
+import Contacts from "../Contacts/Contacts";
 
-function Main() {
+function Main({onReadyServices}) {
   return (
     <main className="content">
-      <ReadyServices />
+      <ReadyServices isOpenPopup={onReadyServices}/>
       <Services />
       <Whyme />
       <Clients />
       <We />
+      <AboutUs />
       <Cases />
       <Feedback />
+      <Contacts />
     </main>
   );
 }
