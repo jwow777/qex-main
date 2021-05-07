@@ -25,6 +25,13 @@
   margin: 0;
 }
 
+.reviewer__company-block {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-column-gap: 5px;
+  align-items: center;
+}
+
 .reviewer__company-image {
   display: block;
 }
@@ -65,8 +72,10 @@
 
 .reviewer__letter-image {
   display: block;
-  width: fit-content;
+  width: 100%;
   height: 100px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .reviewer__letter-name {
@@ -77,4 +86,15 @@
   box-sizing: border-box;
   border-top: 0.5px solid #dbdbdb;
   padding: 7px;
+}
+
+.reviewer__letter-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.reviewer__letter-modal-content {
+  outline: none;
 }

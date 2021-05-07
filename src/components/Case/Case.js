@@ -1,10 +1,12 @@
 import "./Case.css";
 import image from "../../images/cases/image.png";
 
-function Case({ data }) {
+function Case({ data, isOpenPopup }) {
   const { text } = data;
+  const handleClick = () => isOpenPopup(data);
+
   return (
-    <li className="case">
+    <li className="case" onClick={handleClick}>
       <ul className="list case__list">
         <li>Производство</li>
         <li>Продажи</li>

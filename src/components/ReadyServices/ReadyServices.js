@@ -3,6 +3,7 @@ import "./ReadyServices.css";
 import { Link } from "react-router-dom";
 import readyServices from "../../utils/readyservice";
 import OurService from "../OurService/OurService";
+import Arrow from "../Arrow/Arrow";
 
 function ReadyServices({isOpenPopup, onCardClick}) {
   return (
@@ -17,10 +18,10 @@ function ReadyServices({isOpenPopup, onCardClick}) {
           </span>
         </p>
         <ul className="list ready-services__list">
-          {readyServices.map((item, index) => <OurService item={item} isOpenPopup={isOpenPopup} onCardClick={onCardClick} key={index}/>)}
-          <li className="ready-services__item">
+          {readyServices.map((item, index) => <OurService item={item} isOpenPopup={isOpenPopup} onCardClick={onCardClick} styles="landing" key={index}/>)}
+          <li className="ready-services__last-item">
             <Link to="/" className="link ready-services__link">
-              Смотреть все
+              Смотреть все <Arrow white={true}/>
             </Link>
           </li>
         </ul>

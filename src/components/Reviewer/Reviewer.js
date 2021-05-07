@@ -1,30 +1,70 @@
 import "./Reviewer.css";
 import letter from "../../images/aboutus/letter.png";
+import { useState } from "react";
+import { Fade, Modal } from "@material-ui/core";
+import Backdrop from '@material-ui/core/Backdrop';
 
 function Reviewer({ data }) {
-  const { name, company, position, review, photo } = data;
+  const { name, company, companyCountry, position, review, photo } = data;
+
+  const [openLetter, setOpenLetter] = useState(false);
+  const handleOpenLetter = () => setOpenLetter(true);
+  const handleCloseLetter = () => setOpenLetter(false);
   return (
-    <li className="reviewer">
-      <div className="reviewer__block">
-        <img src={photo} alt={name} className="reviewer__photo" />
-        <h3 className="reviewer__name">{name}</h3>
-        {
-          company.startsWith('/images/') 
-          ? <img src={company} alt="" className="reviewer__company-image"/> 
-          : <p className="reviewer__company-title">{company}</p>
-        }
-        <p className="reviewer__position">{position}</p>
-      </div>
-      <p className="reviewer__text">{review}</p>
-      <div className="reviewer__document-block">
-        <img
-          src={letter}
-          alt="Благодарственное письмо"
-          className="reviewer__letter-image"
-        />
-        <span className="reviewer__letter-name">Благодарственное письмо</span>
-      </div>
-    </li>
+    <>
+      <li className="reviewer">
+        <div className="reviewer__block">
+          <img src={photo} alt={name} className="reviewer__photo" />
+          <h3 className="reviewer__name">{name}</h3>
+          <div className="reviewer__company-block">
+            {
+              company.startsWith('/images/') 
+              ? <img src={company} alt="" className="reviewer__company-image"/> 
+              : <p className="reviewer__company-title">{company}</p>
+            }
+            {
+              companyCountry 
+              ? <img src={companyCountry} alt="Страна"/> 
+              : "" 
+            }
+          </div>
+          <p className="reviewer__position">{position}</p>
+        </div>
+        <p className="reviewer__text">{review}</p>
+        <div className="reviewer__document-block" onClick={handleOpenLetter}>
+          <img
+            src={letter}
+            alt="Благодарственное письмо"
+            className="reviewer__letter-image"
+          />
+          <span className="reviewer__letter-name">Благодарственное письмо</span>
+        </div>
+      </li>
+      <Modal
+        aria-labelledby="spring-modal-title"
+        aria-describedby="spring-modal-description"
+        className="reviewer__letter-modal"
+        open={openLetter}
+        onClose={handleCloseLetter}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={openLetter}>
+          <div 
+          className='reviewer__letter-modal-content'
+          >
+            <img
+              src={letter}
+              alt="Благодарственное письмо"
+              // className="reviewer__letter-image"
+            />
+          </div>
+        </Fade>
+      </Modal>
+    </>
   );
 }
 

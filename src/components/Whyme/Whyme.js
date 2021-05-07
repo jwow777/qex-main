@@ -4,6 +4,7 @@ import interfaceUX from "../../images/whyme/interface.png";
 import soft from "../../images/whyme/soft.png";
 import garant from "../../images/whyme/garant.png";
 import { Link } from "react-router-dom";
+import Arrow from "../Arrow/Arrow";
 
 function Whyme() {
   return (
@@ -85,7 +86,7 @@ function Whyme() {
           </li>
         </ul>
         <Link to="/" className="link link_navigation">
-          Еще про подход
+          Еще про подход <Arrow/>
         </Link>
       </div>
     </section>

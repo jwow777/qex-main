@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import crewman from "../../utils/crewman";
 import whoelse from "../../utils/whoelse";
+import Arrow from "../Arrow/Arrow";
 import Crewman from "../Crewman/Crewman";
 import WhoElse from "../Whoelse/Whoelse";
 import "./We.css";
@@ -18,7 +19,7 @@ function We() {
           {whoelse.map((item, index) => <WhoElse data={item} key={index}/>)}
         </ul>
         <Link to="/" className="link link_navigation">
-          Еще о нас
+          Еще о нас <Arrow/>
         </Link>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import review from "../../utils/review";
+import Arrow from "../Arrow/Arrow";
 import Reviewer from "../Reviewer/Reviewer";
 import "./AboutUs.css";
 
@@ -14,7 +15,7 @@ function AboutUs() {
           ))}
         </ul>
         <Link to="/" className="link link_navigation">
-          Еще отзывы
+          Еще отзывы <Arrow down={true}/>
         </Link>
       </div>
     </section>

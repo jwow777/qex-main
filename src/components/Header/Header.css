@@ -2,7 +2,7 @@
   min-height: 756px;
   padding: 20px 20px 0;
   background-repeat: no-repeat;
-  background-position: top right;
+  background-position: top left 615px;
 }
 
 .header__container {
@@ -52,8 +52,10 @@
   color: #010101;
 }
 
-.header__image {
+.header__lang-current {
   display: block;
+  width: 50px;
+  height: 31px;
 }
 
 .header__button_request {
@@ -88,10 +90,14 @@
   font-size: 28px;
   line-height: 34px;
   letter-spacing: 0.005em;
-  margin: 50px 0;
+  margin: 30px 0;
 }
 
 .header__button_test {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-column-gap: 5px;
+  align-items: center;
   background: linear-gradient(180deg, #00cfeb 0%, rgba(150, 150, 150, 0) 100%),
     #0081df;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
@@ -113,4 +119,8 @@
 
 .header__important {
   font-weight: 400;
+}
+
+.header__lang-image {
+  margin-right: 5px;
 }

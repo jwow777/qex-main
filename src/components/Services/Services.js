@@ -4,6 +4,7 @@ import Direction from "../Direction/Direction";
 import stage from "../../utils/stage";
 import Stage from "../Stage/Stage";
 import { Link } from "react-router-dom";
+import Arrow from "../Arrow/Arrow";
 
 function Services() {
   return (
@@ -27,7 +28,7 @@ function Services() {
           </ul>
         </div>
         <Link to="/" className="link link_navigation">
-          К услугам
+          К услугам <Arrow/>
         </Link>
       </div>
     </section>

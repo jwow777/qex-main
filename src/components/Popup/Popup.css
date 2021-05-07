@@ -9,13 +9,11 @@
   left: 0;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.65s ease-in-out, visibility 0s ease 0.65s;
 }
 
 .popup_opened {
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.65s ease-in-out;
 }
 
 .popup__container {
@@ -31,7 +29,36 @@
   border-radius: 10px;
 }
 
+.popup__container_feedback {
+  width: 550px;
+}
+
+.popup__container_ready-services {
+  width: 920px;
+  padding: 50px 65px;
+}
+
+.popup__container_test {
+  width: 920px;
+  padding: 35px 40px;
+}
+
+.popup__container_case {
+  width: 1140px;
+  padding: 50px 65px;
+  display: grid;
+  grid-row-gap: 30px;
+}
+
+.popup__container_details {
+  width: 1070px;
+  padding: 35px 50px 50px;
+  display: grid;
+  grid-row-gap: 30px;
+}
+
 .popup__close {
+  background-color: #fff;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -59,11 +86,16 @@
   box-sizing: border-box;
   padding: 0 15px;
   border: 1px solid #c7c9d9;
-  box-shadow: inset 0px 0.5px 4px rgba(96, 97, 112, 0.25);
   border-radius: 4px;
   font-size: 14px;
   line-height: 24px;
-  color: #8f90a6;
+}
+
+.popup__input_feedback {
+  width: 100%;
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+  box-shadow: none;
 }
 
 .popup__textarea {
@@ -72,11 +104,9 @@
   box-sizing: border-box;
   padding: 10px 15px;
   border: 1px solid #c7c9d9;
-  box-shadow: inset 0px 0.5px 4px rgba(96, 97, 112, 0.25);
   border-radius: 4px;
   font-size: 14px;
   line-height: 24px;
-  color: #8f90a6;
 }
 
 .popup__label {
@@ -95,8 +125,59 @@
   margin-right: 10px;
 }
 
+.popup__select {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  box-sizing: border-box;
+  padding: 0 5px;
+  border-radius: 4px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+  color: #28293d;
+}
+
+.popup__select_feedback {
+  width: 50px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid #c7c9d9;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.popup__select_time {
+  width: 70px;
+  height: 36px;
+}
+
+.popup__date {
+  width: 125px;
+  height: 36px;
+  background: #fff;
+  /* background-image: url(/images/popup/calendar.svg); */
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  border: 1px solid #e7e7e7;
+  box-sizing: border-box;
+  padding: 0 5px 0 27px;
+  border-radius: 4px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+  color: #28293d;
+  margin-left: 10px;
+}
+
+.popup__date:hover {
+  /* background-image: url(/images/popup/calendar-hover.svg); */
+}
+
+.popup__date::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 .popup__submit {
-  justify-self: end;
   width: 108px;
   height: 36px;
   background: #ccc;
@@ -105,4 +186,14 @@
   font-size: 14px;
   line-height: 17px;
   color: #f4f4f4;
+  margin-left: auto;
+}
+
+.popup__button-block {
+  display: flex;
+  align-items: center;
+}
+
+.popup__option_phone {
+  background-repeat: no-repeat;
 }

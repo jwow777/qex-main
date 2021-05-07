@@ -1,0 +1,9 @@
+.policy {
+  width: 1260px;
+  padding: 35px 60px;
+  margin: auto;
+}
+.policy__title {
+  font-weight: 500px;
+  margin: 0 0 30px;
+}

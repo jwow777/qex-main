@@ -1,6 +1,17 @@
 import "./Contacts.css";
 import { Loader } from "@googlemaps/js-api-loader";
 import qex from "../../images/icons/qex.png";
+import metro from "../../images/contacts/metro.png";
+import location from "../../images/contacts/location.svg";
+import phone from "../../images/contacts/phone.png";
+import letter from "../../images/contacts/letter.png";
+import whatsapp from "../../images/contacts/whatsapp.png";
+import facebook from "../../images/contacts/facebook.png";
+import instagram from "../../images/contacts/instagram.png";
+import telegram from "../../images/contacts/telegram.png";
+import youtube from "../../images/contacts/youtube.png";
+import ru from "../../images/flags/ru.png";
+import us from "../../images/flags/us.png";
 
 function Contacts() {
   const additionalOptions = {};
@@ -39,11 +50,94 @@ function Contacts() {
         <ul className="list contacts__list">
           <li className="contacts__item">
             <div id="map-moscow" className="map"></div>
-            <div className="map__info"></div>
+            <div className="map__info">
+              <h3 className="contacts__map-title contacts__map-title_ru">
+                <img src={ru} alt="Россия" className="contacts__map-image"/>Россия, Москва
+              </h3>
+              <ul className="list contacts__map-list">
+                <li className="contacts__map-text contacts__map-text_bold">
+                  <img src={metro} alt="Станция метро" />
+                  <span>Маяковская</span>
+                </li>
+                <li className="contacts__map-text">
+                  <img src={location} alt="Location" />
+                  <span>Ул. Гашека, 14, 123056, эт. 2</span>
+                </li>
+                <li className="contacts__map-text">
+                  <img src={phone} alt="Phone" />
+                  <span>+7 (495) 489-96-96</span>
+                </li>
+                <li className="contacts__map-text">
+                  <img src={letter} alt="Email" />
+                  <span>hello@qexsystems.ru</span>
+                </li>
+                <li className="contacts__map-text">
+                  <img src={whatsapp} alt="WhatsApp" />
+                  <span>+7 (977) 000-00-00</span>
+                </li>
+              </ul>
+              <ul className="list contacts__social-list">
+                <li>
+                  <img src={instagram} alt="Instagram" />
+                </li>
+                <li>
+                  <img src={facebook} alt="Facebook" />
+                </li>
+                <li>
+                  <img src={youtube} alt="Youtube" />
+                </li>
+                <li>
+                  <img src={telegram} alt="Telegram" />
+                </li>
+              </ul>
+            </div>
           </li>
-          <li className="contacts__item">
+          <li className="contacts__item contacts__gray">
             <div id="map-ny" className="map"></div>
-            <div className="map__info"></div>
+            <div className="map__info">
+              <h3 className="contacts__map-title contacts__map-title_us">
+              <img src={us} alt="USA" className="contacts__map-image"/>USA, New York
+              </h3>
+              <ul className="list contacts__map-list">
+                <li className="contacts__map-text contacts__map-text_main">
+                  <div className="contacts__circle-block">
+                    <span className="contacts__circle">C</span>
+                    <span className="contacts__circle">E</span>
+                  </div>
+                  <span>50th st subway station</span>
+                </li>
+                <li className="contacts__map-text">
+                  <img src={location} alt="Location" />
+                  <span>142 W 57th St, NY 10019</span>
+                </li>
+                <li className="contacts__map-text">
+                  <img src={phone} alt="Phone" />
+                  <span>+1 212 974-25-00</span>
+                </li>
+                <li className="contacts__map-text">
+                  <img src={letter} alt="Email" />
+                  <span>hey@qexsystems.ru</span>
+                </li>
+                <li className="contacts__map-text">
+                  <img src={whatsapp} alt="WhatsApp" />
+                  <span>+7 (977) 000-00-00</span>
+                </li>
+              </ul>
+              <ul className="list contacts__social-list">
+                <li>
+                  <img src={instagram} alt="Instagram" />
+                </li>
+                <li>
+                  <img src={facebook} alt="Facebook" />
+                </li>
+                <li>
+                  <img src={youtube} alt="Youtube" />
+                </li>
+                <li>
+                  <img src={telegram} alt="Telegram" />
+                </li>
+              </ul>
+            </div>
             <div className="map__soon">
               <span>Скоро открытие</span>
             </div>

@@ -28,7 +28,7 @@
   border-radius: 7px;
 }
 
-#map-ny {
+.contacts__gray {
   filter: grayscale(100%);
 }
 
@@ -40,6 +40,8 @@
   left: 40px;
   background: #fff;
   border-radius: 7px;
+  box-sizing: border-box;
+  padding: 20px 40px;
 }
 
 .map__soon {
@@ -57,4 +59,69 @@
   font-size: 18px;
   line-height: 22px;
   color: #fff;
+}
+
+.contacts__map-list {
+  display: grid;
+  grid-row-gap: 7px;
+  margin: 10px 0;
+}
+
+.contacts__map-title {
+  display: flex;
+  align-content: center;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.contacts__map-image {
+  width: 32px;
+  height: 19px;
+  display: block;
+  margin-right: 7px;
+}
+
+.contacts__map-text {
+  display: grid;
+  grid-template-columns: 20px auto;
+  align-items: center;
+  grid-column-gap: 5px;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.contacts__map-text_main {
+  grid-template-columns: max-content auto;
+  font-weight: 400;
+}
+
+.contacts__circle-block {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-column-gap: 5px;
+}
+
+.contacts__circle {
+  width: 19px;
+  height: 19px;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  color: #fff;
+}
+
+.contacts__social-list {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  grid-column-gap: 20px;
 }
