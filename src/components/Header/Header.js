@@ -15,7 +15,7 @@ import test from "../../images/header/test.png";
 import MenuHeader from "../MenuHeader/MenuHeader";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Avatar, MenuItem, MenuList, Popover } from "@material-ui/core";
+import { Avatar, Button, MenuItem, MenuList, Popover } from "@material-ui/core";
 
 function Header({ onFeedback, onTest }) {
   const [language, setLanguage] = useState(ru);
@@ -23,13 +23,14 @@ function Header({ onFeedback, onTest }) {
   const [anchorElLang, setAnchorElLang] = useState(null);
   const open = Boolean(anchorEl);
   const openLang = Boolean(anchorElLang);
-  const handleMenu = (event) => setAnchorEl(event.currentTarget);
-  const handleMenuLang = (event) => setAnchorElLang(event.currentTarget);
-  const handleClose = () =>  setAnchorEl(null);
+  const handleMenu = (e) => setAnchorEl(e.currentTarget);
+  const handleMenuLang = (e) => setAnchorElLang(e.currentTarget);
+  const handleClose = () => setAnchorEl(null);
   const handleCloseLang = (e) =>  {
     setLanguage(e.target.lang || language);
     setAnchorElLang(null);
   };
+
   return (
     <header
       className="header"
@@ -45,13 +46,14 @@ function Header({ onFeedback, onTest }) {
             <a href="tel:+74954899696" className="link header__phone">
               +7 (495) 489-96-96
             </a>
-            <button
-              className="button header__button_request"
+            <Button
+              variant="contained"
+              className="header__button_request"
               onClick={onFeedback}
             >
               Оставить заявку
-            </button>
-            <img src={language} alt="language" className="header__lang-current" onClick={handleMenuLang}/>
+            </Button>
+            <img src={language} alt="language" className="header__lang-current" onClick={handleMenuLang}/>   
             <Popover
               anchorEl={anchorElLang}
               anchorOrigin={{
@@ -96,8 +98,7 @@ function Header({ onFeedback, onTest }) {
                 </MenuItem>
               </MenuList>
             </Popover>
-            <Avatar alt="Профиль" src={profile} onClick={handleMenu}/>
-            {/* <img src={profile} alt="flag" className="header__image" onClick={handleMenu}/> */}
+            <Avatar alt="Профиль" src={profile} className="header__avatar" onClick={handleMenu}/>
             <Popover
               anchorEl={anchorEl}
               anchorOrigin={{
@@ -125,9 +126,16 @@ function Header({ onFeedback, onTest }) {
           <h2 className="header__subtitle">
             Разрабатываем и внедряем софт для автоматизации бизнес-процессов
           </h2>
-          <button className="button header__button_test" onClick={onTest}>
-            Какой софт вам нужен? <img src={test} alt="тест"/> Тест
-          </button>
+          <Button
+            variant="contained"
+            color="primary"
+            className="header__button_test"
+            onClick={onTest}
+          >
+            Какой софт вам нужен?
+            <img src={test} alt="тест"/>
+            Тест
+          </Button>
         </div>
       </div>
       <ul className="list header__list">

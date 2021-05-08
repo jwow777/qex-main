@@ -1,9 +1,13 @@
-import "./DetailsCasePopup.css";
-import Popup from "../Popup";
+import "./PopupDetailsCase.css";
+import Popup from "../Popup/Popup";
 
-function DetailsCasePopup({ isOpen, onClose }) {
+function PopupDetailsCase({ open, close }) {
   return (
-    <Popup isOpen={isOpen} onClose={onClose} box="details">
+    <Popup
+      open={open}
+      close={close}
+      classContainer="case"
+    >
       <h2 className="details-case__title">Почему не раскрываем все детали кейсов?</h2>
       <div>
         <h3 className="details-case__subtitle">1. Интеллектуальная собственность клиентов</h3>
@@ -21,4 +25,4 @@ function DetailsCasePopup({ isOpen, onClose }) {
   );
 }
 
-export default DetailsCasePopup;
+export default PopupDetailsCase;

@@ -4,7 +4,7 @@
   line-height: 28px;
   text-align: center;
   color: #2D2D2D;
-  margin: 0;
+  margin: 0 0 30px;
 }
 
 .details-case__subtitle {
@@ -20,5 +20,5 @@
   font-size: 21px;
   line-height: 25px;
   color: #2D2D2D;
-  margin: 0;
+  margin: 0 0 30px;
 }

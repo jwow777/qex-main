@@ -1,16 +1,15 @@
 import "./Feedback.css";
 import bg from "../../images/feedback/bg.png";
 import pdf from "../../images/feedback/pdf.png";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
-import { Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, Grid, makeStyles, MenuItem, Select, Snackbar, TextField } from "@material-ui/core";
+import { Button, Checkbox, FormControl, Grid, makeStyles, MenuItem, Select, Snackbar, TextField } from "@material-ui/core";
 import { Add, LocalPhoneRounded, MailOutlineRounded, Telegram, WhatsApp } from "@material-ui/icons";
 import MuiAlert from '@material-ui/lab/Alert';
-import Policy from "../Popup/Policy/Policy";
 import checked from "../../images/feedback/checked.svg";
 import clsx from "clsx";
 
-function Feedback() {
+function Feedback({openPolicy}) {
   const [state, setState] = useState({
     communication: 'call',
     phone: '',
@@ -50,9 +49,6 @@ function Feedback() {
     console.log(state, phone);
   }
 
-  const [openPolicy, setOpenPolicy] = useState(false);
-  const [scrollPolicy, setScrollPolicy] = useState('paper');
-
   const useStyles = makeStyles((theme) => ({
     icon: {
       width: 10,
@@ -77,24 +73,8 @@ function Feedback() {
   }));
   const classes = useStyles();
 
-  const handleClickOpenPolicy = (scrollType) => () => {
-    setOpenPolicy(true);
-    setScrollPolicy(scrollType);
-  };
-
-  const handleClosePolicy = () => setOpenPolicy(false);
-
-  const descriptionElementRef = useRef(null);
-  useEffect(() => {
-    if (openPolicy) {
-      const { current: descriptionElement } = descriptionElementRef;
-      if (descriptionElement !== null) {
-        descriptionElement.focus();
-      }
-    }
-  }, [openPolicy]);
-  console.log(state)
-  console.log(state.policy)
+  // console.log(state)
+  // console.log(state.policy)
   return (
     <section className="feedback">
       <div className="feedback__container">
@@ -194,7 +174,7 @@ function Feedback() {
             </label>
             <div
               className="feedback__label-politics"
-              onClick={handleClickOpenPolicy("paper")}
+              onClick={openPolicy("paper")}
             >
               политикой обработки данных
             </div>          
@@ -206,24 +186,6 @@ function Feedback() {
             Оставлю еще данных за чек-лист "Свое решение или готовое?"
             <img src={pdf} alt="pdf"/>
           </Button>
-
-          <Dialog
-            open={openPolicy}
-            onClose={handleClosePolicy}
-            scroll={scrollPolicy}
-            aria-labelledby="scroll-dialog-title"
-            aria-describedby="scroll-dialog-description"
-          >
-            <DialogTitle id="scroll-dialog-title">Политика в отношении обработки персональных данных</DialogTitle>
-            <DialogContent dividers={scrollPolicy === 'paper'}>
-              <Policy/>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClosePolicy} color="primary">
-                Ок
-              </Button>
-            </DialogActions>
-          </Dialog>
           <Snackbar anchorOrigin={{
               vertical: 'bottom',
               horizontal: 'right',
@@ -241,59 +203,6 @@ function Feedback() {
             </MuiAlert>
           </Snackbar>
         </FormControl>
-        {/* <form className="feedback__form" onSubmit={handleSubmit}>
-          <div className="feedback__form-block">
-            <select
-              value={feedbackValue}
-              onChange={handleChangeFeedBack}
-              className="input feedback__select feedback__select"
-            >
-              <option
-                value="call"
-                style={{ backgroundImage: `url(${phone})` }}
-              >
-                Звонок
-              </option>
-              <option value="whatsapp">Whatsapp</option>
-              <option value="telegram">Telegram</option>
-              <option value="email">
-                Email
-              </option>
-            </select>
-            {feedbackValue === "email" ? (
-              <input
-                type="email"
-                placeholder="emal@email.com"
-                className="input feedback__input"
-              />
-            ) : (
-              <PhoneInput
-                country={"ru"}
-                value={phone}
-                onChange={setPhone}
-                containerClass={"feedback__input-phone-block"}
-                buttonClass={"feedback__button-phone"}
-                inputClass={"input feedback__input-phone"}
-              />
-            )}
-          </div>
-          <label className="feedback__label">
-            <input type="checkbox" className="feedback__checkbox" />
-            <span className="feedback__checkbox-true"></span>Я согласен с
-            <Link to="/" className="feedback__label-politics">
-              политикой обработки данных
-            </Link>
-          </label>
-          <label className="feedback__file-block">
-            <input type="file" className="feedback__file" accept="application/pdf"/>
-            <img src={plus} alt="Добавить" />
-            Оставлю еще данных за чек-лист "Свое решение или готовое?"
-            <img src={pdf} alt="Решение" />
-          </label>
-          <button type="submit" className="button feedback__submit">
-            Обсудить проект
-          </button>
-        </form> */}
       </div>
     </section>
   );

@@ -1,0 +1,11 @@
+.popup__ready-services .MuiBackdrop-root {
+  background-color: transparent;
+}
+
+.popup__ready-services .MuiDialog-paperWidthSm {
+  max-width: 920px;
+  width: calc(100% - 64px);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 35px 40px;
+}

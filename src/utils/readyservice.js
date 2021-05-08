@@ -16,8 +16,7 @@ const readyServices = [
     bgColor: "#c0ee0a",
     textColor: "#424242",
     alpha: true,
-    colorAlpha: "#c0ee0a",
-    clock: "/images/ready/clock-bbook.png"
+    colorAlpha: "#c0ee0a"
   },
   {
     title: "VOL",
@@ -26,8 +25,7 @@ const readyServices = [
     bgColor: "#679afd",
     textColor: "#fff",
     alpha: true,
-    colorAlpha: "#679afd",
-    clock: "/images/ready/clock-vol.png"
+    colorAlpha: "#679afd"
   },
   {
     title: "Estraid",
@@ -46,8 +44,7 @@ const readyServices = [
     bgColor: "#7e26f9",
     textColor: "#fff",
     alpha: true,
-    colorAlpha: "#7e26f9",
-    clock: "/images/ready/clock-tolp.png"
+    colorAlpha: "#7e26f9"
   },
   {
     title: "Tamer",
@@ -56,8 +53,7 @@ const readyServices = [
     bgColor: "#19cca1",
     textColor: "#fff",
     alpha: true,
-    colorAlpha: "#19cca1",
-    clock: "/images/ready/clock-tamer.png"
+    colorAlpha: "#19cca1"
   },
   {
     title: "Rite",
@@ -67,8 +63,7 @@ const readyServices = [
       "linear-gradient(180deg, #35ff14 0%, rgba(255, 255, 255, 0) 100%), #01fed0",
     textColor: "#424242",
     alpha: true,
-    colorAlpha: "#3fff31",
-    clock: "/images/ready/clock-rite.png"
+    colorAlpha: "#3fff31"
   }
 ];
 

@@ -1,18 +1,20 @@
 import "./Popup.css";
-import plus from "../../images/icons/plus.svg";
+import { Dialog, IconButton } from "@material-ui/core";
+import { Clear } from '@material-ui/icons';
 
-function Popup({ children, isOpen, onClose, box }) {
+function Popup({ children, open, close, classContainer }) {
   return (
-    <div className={`popup${isOpen ? " popup_opened" : ""}`}>
-      <div
-        className={`popup__container${box ? ` popup__container_${box}` : ""}`}
-      >
-        <button type="button" className="button popup__close" onClick={onClose}>
-          <img src={plus} alt="Закрыть" />
-        </button>
-        {children}
-      </div>
-    </div>
+    <Dialog
+      open={open}
+      onClose={close}
+      scroll="body"
+      className={`popup__${classContainer}`}
+    >
+      <IconButton onClick={close} className="popup__close">
+        <Clear />
+      </IconButton>
+      {children}
+    </Dialog>
   );
 }
 

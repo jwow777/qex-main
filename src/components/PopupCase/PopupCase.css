@@ -1,0 +1,88 @@
+.popup__case .MuiBackdrop-root {
+  background-color: transparent;
+  font-family: 'Inter', sans-serif;
+}
+
+.popup__case .MuiDialog-paperWidthSm {
+  max-width: 1250px;
+  width: calc(100% - 64px);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 30px 70px 30px 45px;
+}
+
+.popup__case-block {
+  display: grid;
+  grid-template-columns: 185px auto 310px;
+  grid-column-gap: 25px;
+}
+
+.popup__case-image {
+  width: 100%;
+}
+
+.popup__case-block-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popup__case-block-text {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-column-gap: 5px;
+}
+
+.popup__case-subtitle-block {
+  margin: 40px 0;
+}
+
+.popup__case-subtitle-block:last-child {
+  margin-bottom: 0;
+}
+
+.popup__case-title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+  margin: 0;
+}
+
+.popup__case-subtitle {
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.popup__case-text {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.popup__case-text_bold {
+  font-weight: 400;
+}
+
+.popup__case-button.MuiButton-root {
+  height: 60px;
+  border-color: #E7E7E7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 0 14px;
+}
+
+.popup__case-button.MuiButton-root .MuiButton-label {
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-column-gap: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 21px;
+  color: #2D2D2D;
+  text-align: left;
+  text-transform: none;
+}

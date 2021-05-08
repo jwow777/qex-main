@@ -1,0 +1,151 @@
+.popup__test .MuiBackdrop-root {
+  background-color: transparent;
+}
+
+.popup__test .MuiDialog-paperWidthSm {
+  max-width: 920px;
+  width: calc(100% - 64px);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 35px 40px;
+}
+
+.popup__title_test {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 28px;
+  color: #050505;
+}
+
+.popup__test-range-block {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.popup__test-range-image {
+  position: absolute;
+  top: 3px;
+  right: -5px;
+}
+
+.popup__test-range-result {
+  font-size: 17px;
+  line-height: 21px;
+  color: #948c8c;
+  margin: 0;
+}
+
+.popup__test-range-result_percent {
+  font-weight: 500;
+  color: #6875ef;
+}
+
+.popup__test-range-finish {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  color: #bbb;
+  margin: 0 40px 0 0;
+}
+
+.popup__test-range {
+  overflow: hidden;
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background-color: #f4f4f4;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.popup__test-range::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  color: #6875ef;
+}
+
+.popup__test-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1px;
+  background: #6875ef;
+  box-shadow: -800px 0 0 800px #6875ef;
+}
+
+.popup__test-range::-moz-range-progress {
+  background-color: #6875ef;
+}
+
+.popup__test-range::-moz-range-track {
+  background-color: #f4f4f4;
+}
+
+.popup__test-range::-ms-fill-lower {
+  background-color: #6875ef;
+}
+
+.popup__test-range::-ms-fill-upper {
+  background-color: #f4f4f4;
+}
+
+.popup__test-form {
+  width: 100%;
+}
+
+.popup__test-form-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 30px 0 20px 0;
+  color: #050505;
+}
+
+.popup__test-form-block {
+  display: grid;
+  align-items: center;
+  grid-gap: 18px;
+}
+
+.popup__test-label .MuiTypography-body1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  color: #050505;
+}
+
+.popup__test-radio {
+  color: #b6b6b6;
+}
+
+.popup__test-radio.Mui-checked {
+  color: #6875ef;
+}
+
+.popup__test-radio .MuiSvgIcon-root {
+  width: 17px;
+  height: 17px;
+}
+
+.popup__test-submit {
+  align-self: flex-end;
+  height: 40px;
+  background: #6875ef;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 0 8px 0 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: none;
+  color: #fff;
+  margin-top: 40px;
+}
+
+.popup__test-submit .MuiButton-label {
+  display: flex;
+}

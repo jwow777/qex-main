@@ -1,11 +1,10 @@
 import "./ReadyServices.css";
-// import clock from "../../images/icons/clock.svg";
 import { Link } from "react-router-dom";
 import readyServices from "../../utils/readyservice";
 import OurService from "../OurService/OurService";
 import Arrow from "../Arrow/Arrow";
 
-function ReadyServices({isOpenPopup, onCardClick}) {
+function ReadyServices({openPopup, dataService}) {
   return (
     <section className="ready-services">
       <div className="ready-services__container">
@@ -18,7 +17,7 @@ function ReadyServices({isOpenPopup, onCardClick}) {
           </span>
         </p>
         <ul className="list ready-services__list">
-          {readyServices.map((item, index) => <OurService item={item} isOpenPopup={isOpenPopup} onCardClick={onCardClick} styles="landing" key={index}/>)}
+          {readyServices.map((item, index) => <OurService item={item} openPopup={openPopup} data={dataService} key={index}/>)}
           <li className="ready-services__last-item">
             <Link to="/" className="link ready-services__link">
               Смотреть все <Arrow white={true}/>

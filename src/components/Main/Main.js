@@ -10,17 +10,17 @@ const Cases = lazy(() => import("../Cases/Cases"));
 const Feedback = lazy(() => import("../Feedback/Feedback"));
 const Contacts = lazy(() => import("../Contacts/Contacts"));
 
-function Main({onReadyServices, onCase}) {
+function Main({onReadyServices, dataService, onCase, dataCase, openPolicy}) {
   return (
     <main className="content">
-      <ReadyServices isOpenPopup={onReadyServices}/>
+      <ReadyServices openPopup={onReadyServices} dataService={dataService}/>
       <Services />
       <Whyme />
       <Clients />
       <We />
       <AboutUs />
-      <Cases isOpenPopup={onCase}/>
-      <Feedback />
+      <Cases openPopup={onCase} dataCase={dataCase}/>
+      <Feedback openPolicy={openPolicy}/>
       <Contacts />
     </main>
   );

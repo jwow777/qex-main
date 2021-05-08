@@ -1,32 +1,7 @@
 import "./Footer.css";
-import Policy from "../Popup/Policy/Policy";
 import { Link } from "react-router-dom";
-import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
-import { useEffect } from "react";
-import { useRef } from "react";
-import { useState } from "react";
 
-function Footer() {
-  // Открытие политики
-  const [openPolicy, setOpenPolicy] = useState(false);
-  const [scrollPolicy, setScrollPolicy] = useState('paper');
-
-  const handleClickOpenPolicy = (scrollType) => () => {
-    setOpenPolicy(true);
-    setScrollPolicy(scrollType);
-  };
-
-  const handleClosePolicy = () => setOpenPolicy(false);
-
-  const descriptionElementRef = useRef(null);
-  useEffect(() => {
-    if (openPolicy) {
-      const { current: descriptionElement } = descriptionElementRef;
-      if (descriptionElement !== null) {
-        descriptionElement.focus();
-      }
-    }
-  }, [openPolicy]);
+function Footer({openPolicy}) {
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -99,26 +74,9 @@ function Footer() {
         </div>
         <div className="">
           <div className="footer__politics">
-            <div className="link footer__link" onClick={handleClickOpenPolicy("paper")}>
+            <div className="link footer__link" onClick={openPolicy('paper')}>
               Политика конфиденциальности
             </div>
-            <Dialog
-              open={openPolicy}
-              onClose={handleClosePolicy}
-              scroll={scrollPolicy}
-              aria-labelledby="scroll-dialog-title"
-              aria-describedby="scroll-dialog-description"
-            >
-              <DialogTitle id="scroll-dialog-title">Политика в отношении обработки персональных данных</DialogTitle>
-              <DialogContent dividers={scrollPolicy === 'paper'}>
-                <Policy/>
-              </DialogContent>
-              {/* <DialogActions>
-                <Button onClick={handleClosePolicy} color="primary">
-                  Ок
-                </Button>
-              </DialogActions> */}
-            </Dialog>
             <a href="/" className="link footer__link">
               Лицензионное соглашение
             </a>

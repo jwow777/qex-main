@@ -1,9 +1,14 @@
 import "./Case.css";
 import image from "../../images/cases/image.png";
 
-function Case({ data, isOpenPopup }) {
-  const { text } = data;
-  const handleClick = () => isOpenPopup(data);
+function Case({ item, openPopup, data, styles }) {
+  const { text } = item;
+  const handleClick = () => {
+    if (!styles) {
+      data(item);
+      openPopup();
+    }
+  };
 
   return (
     <li className="case" onClick={handleClick}>

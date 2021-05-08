@@ -1,199 +1,50 @@
-.popup {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.popup_opened {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup__container {
-  position: relative;
-  width: 550px;
-  height: max-content;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 35px 75px;
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-
-.popup__container_feedback {
-  width: 550px;
-}
-
-.popup__container_ready-services {
-  width: 920px;
-  padding: 50px 65px;
-}
-
-.popup__container_test {
-  width: 920px;
-  padding: 35px 40px;
-}
-
-.popup__container_case {
-  width: 1140px;
-  padding: 50px 65px;
-  display: grid;
-  grid-row-gap: 30px;
-}
-
-.popup__container_details {
-  width: 1070px;
-  padding: 35px 50px 50px;
-  display: grid;
-  grid-row-gap: 30px;
-}
-
 .popup__close {
-  background-color: #fff;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 35px;
-  right: 35px;
+  position: absolute !important;
+  top: 15px;
+  right: 15px;
+}
+
+.popup__title {
+  font-family: 'Inter', sans-serif !important;
+  font-style: normal;
 }
 
 .popup__form {
   width: 100%;
+}
+
+.popup__form_feedback {
   display: grid;
   grid-row-gap: 10px;
 }
 
-.popup__title {
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 36px;
-  color: #050505;
-  text-align: center;
-  margin: 0 0 30px;
+.popup__feedback .MuiBackdrop-root {
+  background-color: transparent;
 }
 
-.popup__input {
-  height: 40px;
-  box-sizing: border-box;
-  padding: 0 15px;
-  border: 1px solid #c7c9d9;
-  border-radius: 4px;
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.popup__input_feedback {
+.popup__feedback .MuiDialog-paperWidthSm {
+  max-width: 550px;
   width: 100%;
-  border-radius: 0 4px 4px 0;
-  border-left: none;
-  box-shadow: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 35px 75px;
 }
 
-.popup__textarea {
-  height: 100px;
-  resize: none;
-  box-sizing: border-box;
-  padding: 10px 15px;
-  border: 1px solid #c7c9d9;
-  border-radius: 4px;
-  font-size: 14px;
+.popup__feedback__title-box {
+  display: grid;
+  grid-template-columns: auto max-content;
+  padding: 16px 24px;
+}
+
+.popup__feedback__title {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
   line-height: 24px;
-}
-
-.popup__label {
-  font-size: 10.5px;
-  line-height: 13px;
-  color: #686868;
-  opacity: 0.6;
-}
-
-.popup__checkbox {
-  width: 10px;
-  height: 10px;
-  border: 1px solid #b8b8b8;
-  box-sizing: border-box;
-  border-radius: 2px;
-  margin-right: 10px;
-}
-
-.popup__select {
-  background: #fff;
-  border: 1px solid #e7e7e7;
-  box-sizing: border-box;
-  padding: 0 5px;
-  border-radius: 4px;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 24px;
-  color: #28293d;
-}
-
-.popup__select_feedback {
-  width: 50px;
-  height: 40px;
-  box-sizing: border-box;
-  border: 1px solid #c7c9d9;
-  border-right: none;
-  border-radius: 4px 0 0 4px;
-}
-
-.popup__select_time {
-  width: 70px;
-  height: 36px;
-}
-
-.popup__date {
-  width: 125px;
-  height: 36px;
-  background: #fff;
-  /* background-image: url(/images/popup/calendar.svg); */
-  background-repeat: no-repeat;
-  background-position: 8px center;
-  border: 1px solid #e7e7e7;
-  box-sizing: border-box;
-  padding: 0 5px 0 27px;
-  border-radius: 4px;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 24px;
-  color: #28293d;
-  margin-left: 10px;
-}
-
-.popup__date:hover {
-  /* background-image: url(/images/popup/calendar-hover.svg); */
-}
-
-.popup__date::-webkit-calendar-picker-indicator {
-  display: none;
-}
-
-.popup__submit {
-  width: 108px;
-  height: 36px;
-  background: #ccc;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-  color: #f4f4f4;
-  margin-left: auto;
+  letter-spacing: -0.035em;
 }
 
 .popup__button-block {
   display: flex;
-  align-items: center;
-}
-
-.popup__option_phone {
-  background-repeat: no-repeat;
 }

@@ -1,3 +1,11 @@
+.popup__title_feedback {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+  color: #050505;
+  margin-bottom: 35px;
+}
+
 .feedback__phone-block {
   display: flex;
   height: 40px;
