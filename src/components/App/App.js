@@ -1,20 +1,25 @@
-import { CircularProgress } from "@material-ui/core";
-import { lazy, Suspense, 
-  // useEffect, useRef, 
-  useState } from "react";
-import { Route, Switch } from "react-router-dom";
-import Header from "../Header/Header";
-import Main from "../Main/Main";
-const Footer = lazy(() => import("../Footer/Footer"));
-const PopupFeedback = lazy(() => import("../PopupFeedback/PopupFeedback"));
-const PopupTest = lazy(() => import("../PopupTest/PopupTest"));
-const PopupPolicy = lazy(() => import("../PopupPolicy/PopupPolicy"));
-const PopupReadyServices = lazy(() => import("../PopupReadyServices/PopupReadyServices"));
-const PopupCase = lazy(() => import("../PopupCase/PopupCase"));
-const PopupDetailsCase = lazy(() => import("../PopupDetailsCase/PopupDetailsCase"));
+import React, {
+  lazy,
+  Suspense,
+  // useEffect,
+  // useRef,
+  useState,
+} from 'react';
+import { CircularProgress } from '@material-ui/core';
+import { Route, Switch } from 'react-router-dom';
+import Header from '../Header/Header';
+
+import Main from '../Main/Main';
+
+const Footer = lazy(() => import('../Footer/Footer'));
+const PopupFeedback = lazy(() => import('../PopupFeedback/PopupFeedback'));
+const PopupTest = lazy(() => import('../PopupTest/PopupTest'));
+const PopupPolicy = lazy(() => import('../PopupPolicy/PopupPolicy'));
+const PopupReadyServices = lazy(() => import('../PopupReadyServices/PopupReadyServices'));
+const PopupCase = lazy(() => import('../PopupCase/PopupCase'));
+const PopupDetailsCase = lazy(() => import('../PopupDetailsCase/PopupDetailsCase'));
 
 function App() {
-
   const [openFeedback, setOpenFeedback] = useState(false);
   const handleClickOpenFeedback = () => setOpenFeedback(true);
   const handleCloseFeedback = () => setOpenFeedback(false);
@@ -59,25 +64,25 @@ function App() {
   return (
     <>
       <Header onFeedback={handleClickOpenFeedback} onTest={handleClickOpenTest} />
-      <Suspense 
+      <Suspense
         fallback={
-          <div className="page__progress">
+          <div className='page__progress'>
             <CircularProgress />
           </div>
         }
       >
         <Switch>
-          <Route exact path="/">
-            <Main 
-              onReadyServices={handleClickOpenReadyServices} 
-              dataService={setReadyServiceData} 
-              onCase={handleClickOpenCase} 
-              dataCase={setCaseData} 
+          <Route exact path='/'>
+            <Main
+              onReadyServices={handleClickOpenReadyServices}
+              dataService={setReadyServiceData}
+              onCase={handleClickOpenCase}
+              dataCase={setCaseData}
               openPolicy={handleClickOpenPolicy}
             />
             <PopupFeedback
               openPolicy={handleClickOpenPolicy}
-              open={openFeedback} 
+              open={openFeedback}
               close={handleCloseFeedback}
             />
             <PopupTest open={openTest} close={handleCloseTest} />
@@ -90,7 +95,7 @@ function App() {
               open={openCase}
               close={handleCloseCase}
               data={caseData}
-              onDetailsCase={handleClickOpenDetailsCase} 
+              onDetailsCase={handleClickOpenDetailsCase}
             />
             <PopupDetailsCase open={openDetailsCase} close={handleCloseDetailsCase}/>
             <PopupPolicy open={openPolicy} close={handleClosePolicy}/>

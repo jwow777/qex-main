@@ -8,6 +8,7 @@
   box-sizing: border-box;
   padding: 10px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .our-service_landing {
@@ -16,6 +17,7 @@
 
 .our-service_popup {
   width: 270px;
+  cursor: default;
 }
 
 .our-service__image {

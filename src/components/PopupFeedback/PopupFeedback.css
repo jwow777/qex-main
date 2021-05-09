@@ -149,6 +149,10 @@
   border-color: #c7c9d9;
 }
 
+.feedback__input-time input {
+  font-family: "Inter", sans-serif;
+}
+
 .feedback__input-time .MuiOutlinedInput-root:hover fieldset {
   border-color: #3e7bfa;
 }
@@ -178,6 +182,10 @@
   border-color: #c7c9d9;
 }
 
+.feedback__input-date input {
+  font-family: "Inter", sans-serif;
+}
+
 .feedback__input-date .MuiOutlinedInput-root:hover fieldset {
   border-color: #3e7bfa;
 }
@@ -187,18 +195,25 @@
 }
 
 .feedback__submit {
-  width: 108px;
+  width: auto;
   height: 40px;
-  background: #ccc;
+  background-color: #6875EF;
   border-radius: 4px;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   line-height: 17px;
   color: #f4f4f4;
   margin-left: auto;
+  text-transform: none;
 }
 
 .feedback__submit:hover {
-  background: #6875EF;
+  background-color: #3E7BFA;
+}
+
+.feedback__submit:disabled {
+  background-color: #ccc;
+  color: #fff;
 }
 
 .feedback__label {

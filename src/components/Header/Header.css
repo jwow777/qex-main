@@ -49,7 +49,7 @@
   font-weight: 500;
   font-size: 19px;
   line-height: 23px;
-  color: #010101;
+  color: #fff;
 }
 
 .header__lang-current {
@@ -138,4 +138,10 @@
 
 .header__lang-image {
   margin-right: 5px;
+}
+
+@media screen and (max-width: 1270px) {
+  .header__phone {
+    color: #000;
+  }
 }

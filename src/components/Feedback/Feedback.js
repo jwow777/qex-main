@@ -1,55 +1,70 @@
-import "./Feedback.css";
-import bg from "../../images/feedback/bg.png";
-import pdf from "../../images/feedback/pdf.png";
-import { useState } from "react";
-import PhoneInput from "react-phone-input-2";
-import { Button, Checkbox, FormControl, Grid, makeStyles, MenuItem, Select, Snackbar, TextField } from "@material-ui/core";
-import { Add, LocalPhoneRounded, MailOutlineRounded, Telegram, WhatsApp } from "@material-ui/icons";
+import React, { useEffect, useState } from 'react';
 import MuiAlert from '@material-ui/lab/Alert';
-import checked from "../../images/feedback/checked.svg";
-import clsx from "clsx";
+import {
+  Button,
+  Checkbox,
+  FormControl,
+  Grid,
+  InputAdornment,
+  makeStyles,
+  MenuItem,
+  Select,
+  Snackbar,
+  TextField,
+} from '@material-ui/core';
+import {
+  Add,
+  ArrowDropDown,
+  Event,
+  LocalPhoneRounded,
+  MailOutlineRounded,
+  Telegram,
+  WhatsApp,
+} from '@material-ui/icons';
+import {
+  DatePicker,
+  MuiPickersUtilsProvider,
+  TimePicker,
+} from '@material-ui/pickers';
+import clsx from 'clsx';
+import DateFnsUtils from '@date-io/date-fns';
+import ru from 'date-fns/locale/ru';
+import PhoneInput from 'react-phone-input-2';
+import './Feedback.css';
+import bg from '../../images/feedback/bg.png';
+import pdf from '../../images/feedback/pdf.png';
+import checked from '../../images/feedback/checked.svg';
 
-function Feedback({openPolicy}) {
+function Feedback({ openPolicy }) {
   const [state, setState] = useState({
     communication: 'call',
     phone: '',
     email: '',
     policy: false,
   });
-  const [openError, setOpenError] = useState(false);
+  const [phone, setPhone] = useState('');
   const [openSuccess, setOpenSuccess] = useState(false);
-  const [phone, setPhone] = useState("");
 
-  const handleChange = (event) => setState({...state, [event.target.name]: event.target.value,});
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const handleDateChange = (date) => setSelectedDate(date);
 
-  const handleCloseError = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpenError(false);
-  };
+  const handleChange = (event) => setState({ ...state, [event.target.name]: event.target.value });
 
   const handleCloseSuccess = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-
     setOpenSuccess(false);
   };
 
+  useEffect(() => setState({ ...state, phone }), [phone]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!phone & !state.email) {
-      setOpenError(true);
-    }
-    if (phone || state.email) {
-      setOpenSuccess(true);
-    }
-    console.log(state, phone);
-  }
+    setOpenSuccess(true);
+  };
 
-  const useStyles = makeStyles((theme) => ({
+  const useStyles = makeStyles(() => ({
     icon: {
       width: 10,
       height: 10,
@@ -73,132 +88,211 @@ function Feedback({openPolicy}) {
   }));
   const classes = useStyles();
 
-  // console.log(state)
-  // console.log(state.policy)
+  const [openInputs, setOpenInputs] = useState(false);
+  function handleVisibleInputs() {
+    if (openInputs) {
+      setOpenInputs(false);
+    } else {
+      setOpenInputs(true);
+    }
+  }
+
   return (
-    <section className="feedback">
-      <div className="feedback__container">
+    <section className='feedback'>
+      <div className='feedback__container'>
         <div
-          className="feedback__image"
+          className='feedback__image'
           style={{ backgroundImage: `url(${bg})` }}
         ></div>
-        <h2 className="feedback__title">
+        <h2 className='feedback__title'>
           Проведем аналитику и предложим решение, которое поможет вашим
           процессам стать лучше
         </h2>
-        <h3 className="feedback__subtitle">Мы знаем, как</h3>
+        <h3 className='feedback__subtitle'>Мы знаем, как</h3>
         <FormControl
-          component="form"
-          variant="outlined"
-          size="small"
-          className="feedback__form"
+          component='form'
+          variant='outlined'
+          size='small'
+          className={`feedback__form${openInputs ? ' feedback__form_extra' : ''}`}
           onSubmit={handleSubmit}
         >
-          <div className="feedback__phone-block">
+          <div className='feedback__phone-block'>
             <Select
-              name="communication"
+              name='communication'
               defaultValue={state.communication}
               value={state.communication}
               onChange={handleChange}
-              className="feedback__select"
+              className='feedback__select'
             >
-              <MenuItem value="call">
-                <LocalPhoneRounded className="feedback__select-image"/>
+              <MenuItem value='call'>
+                <LocalPhoneRounded className='feedback__select-image'/>
                 Звонок
               </MenuItem>
-              <MenuItem value="whatsapp">
-                <WhatsApp className="feedback__select-image"/>
+              <MenuItem value='whatsapp'>
+                <WhatsApp className='feedback__select-image'/>
                 WhatsApp
               </MenuItem>
-              <MenuItem value="telegram">
-                <Telegram className="feedback__select-image"/>
+              <MenuItem value='telegram'>
+                <Telegram className='feedback__select-image'/>
                 Telegram
               </MenuItem>
-              <MenuItem value="email">
-                <MailOutlineRounded className="feedback__select-image"/>
+              <MenuItem value='email'>
+                <MailOutlineRounded className='feedback__select-image'/>
                 Email
               </MenuItem>
             </Select>
-            {state.communication === "email" ? (
+            {state.communication === 'email' ? (
               <TextField
-                name="email"
-                type="email"
-                variant="outlined"
-                size="small"
-                placeholder="email@mail.com"
+                name='email'
+                type='email'
+                variant='outlined'
+                size='small'
+                placeholder='email@mail.com'
                 value={state.email}
                 onChange={handleChange}
-                className="feedback__input-email"
+                className='feedback__input-email'
               />
             ) : (
               <PhoneInput
-                country={"ru"}
-                className="input popup__input popup__input_feedback"
+                country={'ru'}
+                className='input popup__input popup__input_feedback'
                 value={phone}
                 onChange={setPhone}
-                containerClass={"feedback__input-phone-block"}
-                inputClass={"input feedback__input-phone"}
-                buttonClass={"feedback__button-phone"}
+                containerClass={'feedback__input-phone-block'}
+                inputClass={'input feedback__input-phone'}
+                buttonClass={'feedback__button-phone'}
                 inputProps={{
                   required: true,
-                  name: "phone",
+                  name: 'phone',
                 }}
               />
             )}
           </div>
           <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            className="feedback__submit-site"
-            // disabled={`${Boolean(phone) || Boolean(state.email)}`}
+            type='submit'
+            variant='contained'
+            color='primary'
+            className={`feedback__submit-site${openInputs ? ' feedback__submit-site_hidden' : ''}`}
+            disabled={!(state.email || phone)}
           >
             Обсудить проект
           </Button>
+          <div className={`feedback__extra-input${openInputs ? ' feedback__extra-input_visible' : ''}`}>
+            <TextField
+              label='Имя'
+              type='text'
+              variant='outlined'
+              size='small'
+              className='feedback__input feedback__input_site'
+            />
+            <TextField
+              label='Компания'
+              type='text'
+              variant='outlined'
+              size='small'
+              className='feedback__input feedback__input_site'
+            />
+            <TextField
+              label='О задаче'
+              multiline
+              rows={4}
+              variant='outlined'
+              size='small'
+              className='feedback__input feedback__input_site'
+            />
+          </div>
           <Grid
             container
-            direction="row"
-            justify="flex-start"
-            alignItems="center"
+            direction='row'
+            justify='flex-start'
+            alignItems='center'
+            className='feedback__checkbox feedback__checkbox_site'
           >
-            <label className="feedback__label">
-              <Checkbox 
-                // required
-                name="policy"
-                size="small"
-                color="primary"
+            <label className='feedback__label'>
+              <Checkbox
+                name='policy'
+                size='small'
+                color='primary'
                 checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
                 icon={<span className={classes.icon} />}
               />
               Я согласен с
             </label>
             <div
-              className="feedback__label-politics"
-              onClick={openPolicy("paper")}
+              className='feedback__label-politics'
+              onClick={openPolicy('paper')}
             >
               политикой обработки данных
-            </div>          
+            </div>
           </Grid>
+          <div className={`feedback__extra-input feedback__button-block${openInputs ? ' feedback__extra-input_visible' : ''}`}>
+            <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ru}>
+              <TimePicker
+                autoOk
+                variant='inline'
+                ampm={false}
+                inputVariant='outlined'
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <ArrowDropDown/>
+                    </InputAdornment>
+                  ),
+                }}
+                value={selectedDate}
+                minutesStep={10}
+                size='small'
+                onChange={handleDateChange}
+                className='feedback__input-time'
+              />
+              <DatePicker
+                autoOk
+                disableToolbar
+                disablePast={true}
+                variant='inline'
+                format='dd.MM.yyyy'
+                inputVariant='outlined'
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <Event />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <ArrowDropDown/>
+                    </InputAdornment>
+                  ),
+                }}
+                value={selectedDate}
+                size='small'
+                onChange={handleDateChange}
+                className='feedback__input-date'
+              />
+            </MuiPickersUtilsProvider>
+            <Button
+              type='submit'
+              variant='contained'
+              className='feedback__submit feedback__submit_site-down'
+              disabled={!(state.email || phone)}
+            >
+              Отправить и скачать
+              <img src={pdf} alt='pdf' className='feedback__image-pdf feedback__image-pdf_big'/>
+            </Button>
+          </div>
           <Button
-            className="feedback__file"
+            className={`feedback__file${openInputs ? ' feedback__file_hidden' : ''}`}
             startIcon={<Add />}
+            onClick={handleVisibleInputs}
           >
-            Оставлю еще данных за чек-лист "Свое решение или готовое?"
-            <img src={pdf} alt="pdf"/>
+            Оставлю еще данных за чек-лист &apos;Свое решение или готовое?&apos;
+            <img src={pdf} alt='pdf' className='feedback__image-pdf feedback__image-pdf_small'/>
           </Button>
           <Snackbar anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }} open={openError} autoHideDuration={3000} onClose={handleCloseError}>
-            <MuiAlert elevation={6} variant="filled" severity="error" onClose={handleCloseError}>
-              Вы не указали номер телефона или эл. почту!
-            </MuiAlert>
-          </Snackbar>
-          <Snackbar anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }} open={openSuccess} autoHideDuration={3000} onClose={handleCloseSuccess}>
-            <MuiAlert elevation={6} variant="filled" severity="success" onClose={handleCloseSuccess}>
+            vertical: 'bottom',
+            horizontal: 'right',
+          }} open={openSuccess} autoHideDuration={3000} onClose={handleCloseSuccess}>
+            <MuiAlert elevation={6} variant='filled' severity='success' onClose={handleCloseSuccess}>
               Заявка уже в нашей CRM, мы скоро с вами свяжемся :)
             </MuiAlert>
           </Snackbar>

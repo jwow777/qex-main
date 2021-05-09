@@ -23,3 +23,7 @@
   justify-self: center;
   align-self: center;
 }
+
+.clients__image:nth-child(13) {
+  grid-column: 2/4;
+}

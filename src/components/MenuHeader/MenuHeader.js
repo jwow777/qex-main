@@ -1,27 +1,28 @@
-import "./MenuHeader.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './MenuHeader.css';
+import { Link } from 'react-router-dom';
 
 function Menu() {
   return (
     <nav>
-      <ul className="list menu__list">
+      <ul className='list menu__list'>
         <li>
-          <Link to="/" className="link menu__link">
+          <Link to='/' className='link menu__link'>
             Услуги
           </Link>
         </li>
         <li>
-          <Link to="/" className="link menu__link">
+          <Link to='/' className='link menu__link'>
             Почитать
           </Link>
         </li>
         <li>
-          <Link to="/" className="link menu__link">
+          <Link to='/' className='link menu__link'>
             Кейсы
           </Link>
         </li>
         <li>
-          <Link to="/" className="link menu__link">
+          <Link to='/' className='link menu__link'>
             Контакты
           </Link>
         </li>
