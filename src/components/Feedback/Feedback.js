@@ -35,22 +35,51 @@ import bg from '../../images/feedback/bg.png';
 import pdf from '../../images/feedback/pdf.png';
 import checked from '../../images/feedback/checked.svg';
 
+const useStyles = makeStyles(() => ({
+  icon: {
+    width: 10,
+    height: 10,
+    borderRadius: 2,
+    boxSizing: 'border-box',
+    border: '1px solid #b8b8b8',
+    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
+  },
+  checkedIcon: {
+    border: '1px solid #3e7bfa',
+    '&:before': {
+      display: 'block',
+      width: 10,
+      height: 10,
+      backgroundImage: `url(${checked})`,
+      position: 'absolute',
+      top: 8,
+      content: '""',
+    },
+  },
+}));
+
 function Feedback({ openPolicy }) {
+  const classes = useStyles();
   const [state, setState] = useState({
     communication: 'call',
     phone: '',
     email: '',
-    policy: false,
+    policy: true,
+    date: '',
   });
   const [phone, setPhone] = useState('');
   const [openSuccess, setOpenSuccess] = useState(false);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const handleDateChange = (date) => setSelectedDate(date);
+  const handleDateChange = (date) => {
+    setState({ ...state, date });
+    setSelectedDate(date);
+  };
 
-  const handleChange = (event) => setState({ ...state, [event.target.name]: event.target.value });
+  const handleChange = (e) => setState({ ...state, [e.target.name]: e.target.value });
+  const handleChangeCheckbox = (e) => setState({ ...state, [e.target.name]: e.target.checked });
 
-  const handleCloseSuccess = (event, reason) => {
+  const handleCloseSuccess = (reason) => {
     if (reason === 'clickaway') {
       return;
     }
@@ -63,30 +92,6 @@ function Feedback({ openPolicy }) {
     e.preventDefault();
     setOpenSuccess(true);
   };
-
-  const useStyles = makeStyles(() => ({
-    icon: {
-      width: 10,
-      height: 10,
-      borderRadius: 2,
-      boxSizing: 'border-box',
-      border: '1px solid #b8b8b8',
-      backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
-    },
-    checkedIcon: {
-      border: '1px solid #3e7bfa',
-      '&:before': {
-        display: 'block',
-        width: 10,
-        height: 10,
-        backgroundImage: `url(${checked})`,
-        position: 'absolute',
-        top: 8,
-        content: '""',
-      },
-    },
-  }));
-  const classes = useStyles();
 
   const [openInputs, setOpenInputs] = useState(false);
   function handleVisibleInputs() {
@@ -210,6 +215,8 @@ function Feedback({ openPolicy }) {
           >
             <label className='feedback__label'>
               <Checkbox
+                checked={state.policy}
+                onChange={handleChangeCheckbox}
                 name='policy'
                 size='small'
                 color='primary'
@@ -240,7 +247,7 @@ function Feedback({ openPolicy }) {
                   ),
                 }}
                 value={selectedDate}
-                minutesStep={10}
+                minutesStep={5}
                 size='small'
                 onChange={handleDateChange}
                 className='feedback__input-time'

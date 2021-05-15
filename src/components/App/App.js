@@ -1,14 +1,11 @@
 import React, {
   lazy,
   Suspense,
-  // useEffect,
-  // useRef,
   useState,
 } from 'react';
 import { CircularProgress } from '@material-ui/core';
 import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-
 import Main from '../Main/Main';
 
 const Footer = lazy(() => import('../Footer/Footer'));
@@ -46,21 +43,6 @@ function App() {
   const handleClickOpenPolicy = () => () => setOpenPolicy(true);
   const handleClosePolicy = () => setOpenPolicy(false);
 
-  // const descriptionElementRef = useRef(null);
-  // useEffect(() => {
-  //   if (openFeedback) {
-  //     const { current: descriptionElement } = descriptionElementRef;
-  //     if (descriptionElement !== null) {
-  //       descriptionElement.focus();
-  //     }
-  //   }
-  //   if (openPolicy) {
-  //     const { current: descriptionElement } = descriptionElementRef;
-  //     if (descriptionElement !== null) {
-  //       descriptionElement.focus();
-  //     }
-  //   }
-  // }, [openFeedback, openPolicy]);
   return (
     <>
       <Header onFeedback={handleClickOpenFeedback} onTest={handleClickOpenTest} />

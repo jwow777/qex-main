@@ -33,71 +33,63 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/plain.css';
 import checked from '../../images/feedback/checked.svg';
 
+const useStyles = makeStyles(() => ({
+  icon: {
+    width: 10,
+    height: 10,
+    borderRadius: 2,
+    boxSizing: 'border-box',
+    border: '1px solid #b8b8b8',
+    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
+  },
+  checkedIcon: {
+    border: '1px solid #3e7bfa',
+    '&:before': {
+      display: 'block',
+      width: 10,
+      height: 10,
+      backgroundImage: `url(${checked})`,
+      position: 'absolute',
+      top: 8,
+      content: '""',
+    },
+  },
+}));
+
 function FormFeedback({ openPolicy }) {
+  const classes = useStyles();
   const [state, setState] = useState({
     communication: 'call',
     phone: '',
     email: '',
-    policy: false,
+    policy: true,
+    date: '',
   });
 
   const [phone, setPhone] = useState('');
-  const [openError, setOpenError] = useState(false);
   const [openSuccess, setOpenSuccess] = useState(false);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const handleDateChange = (date) => setSelectedDate(date);
-
-  const handleChange = (event) => setState({ ...state, [event.target.name]: event.target.value });
-
-  const handleCloseError = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpenError(false);
+  const handleDateChange = (date) => {
+    setState({ ...state, date });
+    setSelectedDate(date);
   };
 
-  const handleCloseSuccess = (event, reason) => {
+  const handleChange = (e) => setState({ ...state, [e.target.name]: e.target.value });
+  const handleChangeCheckbox = (e) => setState({ ...state, [e.target.name]: e.target.checked });
+
+  const handleCloseSuccess = (reason) => {
     if (reason === 'clickaway') {
       return;
     }
     setOpenSuccess(false);
   };
 
-  const useStyles = makeStyles(() => ({
-    icon: {
-      width: 10,
-      height: 10,
-      borderRadius: 2,
-      boxSizing: 'border-box',
-      border: '1px solid #b8b8b8',
-      backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
-    },
-    checkedIcon: {
-      border: '1px solid #3e7bfa',
-      '&:before': {
-        display: 'block',
-        width: 10,
-        height: 10,
-        backgroundImage: `url(${checked})`,
-        position: 'absolute',
-        top: 8,
-        content: '""',
-      },
-    },
-  }));
-  const classes = useStyles();
-
   useEffect(() => setState({ ...state, phone }), [phone]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!phone && !state.email) {
-      setOpenError(true);
-    }
-    if (phone || state.email) {
-      setOpenSuccess(true);
-    }
+    setOpenSuccess(true);
   };
 
   return (
@@ -189,7 +181,9 @@ function FormFeedback({ openPolicy }) {
       >
         <label className='feedback__label'>
           <Checkbox
-            // required
+            checked={state.policy}
+            onChange={handleChangeCheckbox}
+            name='policy'
             size='small'
             color='primary'
             checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
@@ -219,7 +213,7 @@ function FormFeedback({ openPolicy }) {
               ),
             }}
             value={selectedDate}
-            minutesStep={10}
+            minutesStep={5}
             size='small'
             onChange={handleDateChange}
             className='feedback__input-time'
@@ -258,14 +252,6 @@ function FormFeedback({ openPolicy }) {
           Отправить
         </Button>
       </div>
-      <Snackbar anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'right',
-      }} open={openError} autoHideDuration={3000} onClose={handleCloseError}>
-        <MuiAlert elevation={6} variant='filled' severity='error' onClose={handleCloseError}>
-          Вы не указали номер телефона или эл. почту!
-        </MuiAlert>
-      </Snackbar>
       <Snackbar anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'right',

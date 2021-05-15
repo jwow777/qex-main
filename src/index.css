@@ -5,8 +5,6 @@
   max-width: 1600px;
   font-family: "Inter", sans-serif;
   margin: auto;
-  padding: 0 !important;
-  overflow: visible !important;
 }
 
 .page__progress {
